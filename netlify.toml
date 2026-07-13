@@ -1,0 +1,34 @@
+functionsDirectory = "D:\\PROJETS WEB\\GAP\\gap\\netlify\\functions"
+functionsDirectoryOrigin = "config-v1"
+headers = []
+redirects = []
+
+[functions]
+
+  [functions."*"]
+
+[[plugins]]
+origin = "ui"
+package = "@netlify/plugin-emails"
+pinned_version = "1"
+
+  [plugins.inputs]
+
+[build]
+command = "# no build command"
+commandOrigin = "config"
+functions = "D:\\PROJETS WEB\\GAP\\gap\\netlify\\functions"
+
+  [build.environment]
+
+  [build.processing]
+
+    [build.processing.css]
+
+    [build.processing.html]
+
+    [build.processing.images]
+
+    [build.processing.js]
+
+  [build.services]
