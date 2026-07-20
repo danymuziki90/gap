@@ -24,8 +24,8 @@
     rel="stylesheet">
   <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
   <link rel="stylesheet" href="assets/css/site.css">
-  <script defer src="assets/js/translations.js"></script>
-  <script defer src="assets/js/site.js"></script>
+  <script src="assets/js/translate.js"></script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 
 <body data-page="index">
@@ -59,15 +59,7 @@
             aria-hidden="true"></i></a>
       </nav>
       <div class="header-tools">
-        <div class="lang-selector-wrapper">
-
-          <button class="lang-btn" data-lang-btn="fr" aria-label="Langue Française">FR</button>
-
-          <span class="lang-separator">|</span>
-
-          <button class="lang-btn" data-lang-btn="en" aria-label="English Language">EN</button>
-
-        </div>
+        <div id="google_translate_element"></div>
 
         <button class="theme-toggle" type="button" data-theme-toggle aria-label="Basculer le thème sombre"
           aria-pressed="false">
