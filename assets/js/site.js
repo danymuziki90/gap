@@ -26,7 +26,6 @@
 
   const toggleNavigation = () => {
     const isOpen = body.classList.toggle("nav-open");
-    body.style.overflow = isOpen ? "hidden" : "";
     if (navToggle) {
       navToggle.setAttribute("aria-expanded", String(isOpen));
       const icon = navToggle.querySelector("i");
@@ -38,7 +37,6 @@
 
   const closeNavigation = () => {
     body.classList.remove("nav-open");
-    body.style.overflow = "";
     if (navToggle) {
       navToggle.setAttribute("aria-expanded", "false");
       const icon = navToggle.querySelector("i");

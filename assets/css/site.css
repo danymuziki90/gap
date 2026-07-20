@@ -126,7 +126,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 p, h1, h2, h3, h4, h5, h6 { margin: 0; }
 
-main { overflow: clip; }
+main { overflow: visible; }
 
 /* ============================================================
    VIDEO CARDS — Section "Nos actions en vidéo"
