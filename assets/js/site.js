@@ -382,18 +382,23 @@
     };
 
     // Store references to text nodes and elements to translate
+    // Each entry: { node, key, originalText }
     const textNodes = [];
     const placeholders = [];
+    let scanDone = false;
 
     const initScanner = () => {
+      if (scanDone) return;
+      scanDone = true;
+
       // Create a flat dictionary from both languages to find keys by text value
       const frFlat = window.gapTranslations && window.gapTranslations.fr ? flattenObject(window.gapTranslations.fr) : {};
       const enFlat = window.gapTranslations && window.gapTranslations.en ? flattenObject(window.gapTranslations.en) : {};
-      
+
       const findKeyByValue = (text) => {
         const cleaned = text.trim().replace(/\s+/g, ' ');
         if (!cleaned) return null;
-        
+
         for (const [key, val] of Object.entries(frFlat)) {
           if (val && val.trim().replace(/\s+/g, ' ') === cleaned) return key;
         }
@@ -403,20 +408,20 @@
         return null;
       };
 
-      // Walk DOM text nodes
+      // Walk DOM text nodes — capture ORIGINAL text before any translation
       const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
       let node;
-      while (node = walk.nextNode()) {
+      while ((node = walk.nextNode())) {
         const parent = node.parentElement;
         if (parent && (
-          parent.tagName === "SCRIPT" || 
-          parent.tagName === "STYLE" || 
+          parent.tagName === "SCRIPT" ||
+          parent.tagName === "STYLE" ||
           parent.classList.contains("lang-btn") ||
           parent.tagName === "I"
         )) {
           continue;
         }
-        
+
         // Skip elements inside SVG maps
         if (parent && parent.closest("svg")) {
           continue;
@@ -427,6 +432,7 @@
           const key = findKeyByValue(text);
           if (key) {
             node._translationKey = key;
+            node._originalText = node.nodeValue; // preserve whitespace
             textNodes.push(node);
           }
         }
@@ -438,6 +444,7 @@
         const key = findKeyByValue(ph);
         if (key) {
           elem._translationKeyPlaceholder = key;
+          elem._originalPlaceholder = elem.getAttribute("placeholder");
           placeholders.push(elem);
         }
       });
@@ -575,23 +582,23 @@
     };
 
     const translatePage = (lang) => {
-      // 1. Programmatically scan if not already scanned
-      if (textNodes.length === 0 && placeholders.length === 0) {
-        initScanner();
-      }
+      // 1. Scan ONCE at load time before any text is changed
+      initScanner();
 
-      // 2. Translate scanned text nodes
+      // 2. Translate scanned text nodes using memorized originals
       textNodes.forEach((node) => {
         const key = node._translationKey;
         const translation = getTranslationValue(lang, key);
         if (translation !== null) {
-          const leading = node.nodeValue.match(/^\s*/)[0];
-          const trailing = node.nodeValue.match(/\s*$/)[0];
+          // Preserve leading/trailing whitespace from original
+          const original = node._originalText || node.nodeValue;
+          const leading = original.match(/^\s*/)[0];
+          const trailing = original.match(/\s*$/)[0];
           node.nodeValue = leading + translation + trailing;
         }
       });
 
-      // 3. Translate placeholders
+      // 3. Translate placeholders using memorized originals
       placeholders.forEach((elem) => {
         const key = elem._translationKeyPlaceholder;
         const translation = getTranslationValue(lang, key);
