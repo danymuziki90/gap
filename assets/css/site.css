@@ -2416,3 +2416,70 @@ body {
     padding: 0.25rem 0.5rem !important;
   }
 }
+
+/* ============================================================
+   RESPONSIVE COMPLÉMENTAIRE — corrections globales
+   ============================================================ */
+
+/* Header compact sur mobile */
+@media (max-width: 480px) {
+  .announcement { display: none; }
+  .nav-shell { min-height: 62px; gap: 0.5rem; }
+  .brand-copy { display: none; }
+  .brand img { width: 40px; height: 40px; }
+  .brand-title { font-size: 0.88rem; }
+  .header-tools { gap: 0.35rem; }
+  .theme-toggle .theme-toggle-text { display: none; }
+}
+
+/* Footer responsive serré */
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 0.35rem; }
+  .social-links { justify-content: center; }
+}
+
+/* Boutons pleine largeur sur mobile */
+@media (max-width: 480px) {
+  .actions { flex-direction: column; align-items: stretch; }
+  .actions .button { width: 100%; justify-content: center; }
+}
+
+/* Sections header centré sur mobile */
+@media (max-width: 600px) {
+  .section-heading { font-size: clamp(1.6rem, 5.5vw, 2.2rem); }
+  .section-copy { font-size: 0.95rem; }
+}
+
+/* Hero section (ancienne) sur mobile */
+@media (max-width: 600px) {
+  .hero { padding-block: clamp(3.5rem, 8vw, 5rem); }
+  .hero-title { font-size: clamp(1.8rem, 6vw, 2.4rem); }
+  .hero-text { font-size: 0.95rem; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .button { width: 100%; justify-content: center; }
+}
+
+/* KPI cards sur mobile */
+@media (max-width: 480px) {
+  .kpi-card { padding: 1.25rem 1rem; }
+  .kpi-card strong { font-size: clamp(2rem, 7vw, 2.8rem); }
+}
+
+/* Google Translate sur mobile */
+@media (max-width: 480px) {
+  #google_translate_element .goog-te-gadget-simple {
+    font-size: 0.72rem !important;
+    padding: 0.2rem 0.4rem !important;
+  }
+}
+
+/* Scroll-top position sur mobile */
+@media (max-width: 480px) {
+  .scroll-top-btn {
+    right: 0.85rem;
+    bottom: 0.85rem;
+    width: 40px;
+    height: 40px;
+  }
+}
