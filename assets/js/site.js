@@ -1,7 +1,6 @@
 (() => {
   const root = document.documentElement;
   const body = document.body;
-  const themeStorageKey = "gap-theme";
 
   const getL10n = (key, fallback) => {
     const lang = document.documentElement.getAttribute("lang") || "fr";
@@ -17,38 +16,13 @@
     }
     return typeof val === "string" ? val : fallback;
   };
+
   const navToggle = document.querySelector("[data-nav-toggle]");
   const nav = document.querySelector("[data-nav]");
-  const themeToggle = document.querySelector("[data-theme-toggle]");
 
   root.classList.add("has-js");
-
-  const setTheme = (theme) => {
-    root.dataset.theme = theme;
-    window.localStorage.setItem(themeStorageKey, theme);
-
-    if (themeToggle) {
-      themeToggle.setAttribute("aria-pressed", String(theme === "dark"));
-      themeToggle.setAttribute(
-        "aria-label",
-        theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
-      );
-
-      const icon = themeToggle.querySelector("i");
-      if (icon) {
-        icon.className = theme === "dark" ? "bi bi-sun-fill" : "bi bi-moon-stars-fill";
-      }
-    }
-  };
-
-  const getInitialTheme = () => {
-    const storedTheme = window.localStorage.getItem(themeStorageKey);
-    if (storedTheme === "light" || storedTheme === "dark") {
-      return storedTheme;
-    }
-
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  };
+  // Force light mode — theme switcher supprimé
+  root.dataset.theme = "light";
 
   const toggleNavigation = () => {
     const isOpen = body.classList.toggle("nav-open");
