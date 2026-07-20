@@ -901,16 +901,18 @@ body.nav-open .nav-toggle i {
     bottom: 0;
     left: auto;
     width: min(300px, 82vw);
+    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
     gap: 0;
     padding: 0 0 2.5rem 0;
     background: linear-gradient(160deg, #0A1B5C 0%, #0D2A7A 100%);
-    transform: translateX(102%);
+    transform: translateX(105%);
     transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
                 visibility 300ms ease;
     visibility: hidden;
+    pointer-events: none;
     z-index: 100;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -923,6 +925,7 @@ body.nav-open .nav-toggle i {
   body.nav-open .site-nav {
     transform: translateX(0);
     visibility: visible;
+    pointer-events: all;
   }
 
   /* Overlay */
