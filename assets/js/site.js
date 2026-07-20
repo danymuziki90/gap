@@ -658,7 +658,6 @@
     setupListeners();
   };
 
-  setTheme(getInitialTheme());
   setCurrentNav();
   setYear();
   initReveal();
@@ -668,13 +667,6 @@
   initContactForm();
   initVideoPlayers();
   initTranslation();
-
-
-  if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-      setTheme(root.dataset.theme === "dark" ? "light" : "dark");
-    });
-  }
 
   if (navToggle) {
     navToggle.addEventListener("click", toggleNavigation);
