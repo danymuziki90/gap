@@ -26,6 +26,7 @@
 
   const toggleNavigation = () => {
     const isOpen = body.classList.toggle("nav-open");
+    body.style.overflow = isOpen ? "hidden" : "";
     if (navToggle) {
       navToggle.setAttribute("aria-expanded", String(isOpen));
       const icon = navToggle.querySelector("i");
@@ -37,6 +38,7 @@
 
   const closeNavigation = () => {
     body.classList.remove("nav-open");
+    body.style.overflow = "";
     if (navToggle) {
       navToggle.setAttribute("aria-expanded", "false");
       const icon = navToggle.querySelector("i");
@@ -678,8 +680,19 @@
     });
   }
 
+  // Fermer en cliquant sur l'overlay (::before) ou hors du panneau
+  document.addEventListener("click", (e) => {
+    if (!body.classList.contains("nav-open")) return;
+    const isInsideNav = nav && nav.contains(e.target);
+    const isToggleBtn = navToggle && navToggle.contains(e.target);
+    if (!isInsideNav && !isToggleBtn) {
+      closeNavigation();
+    }
+  });
+
+  // Fermer au resize si écran desktop
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 900) {
       closeNavigation();
     }
   });
