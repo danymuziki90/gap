@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    HOME.CSS — Styles dédiés à la page d'accueil
    Grand African Projects — Design Premium v4.0
    ============================================================ */
@@ -55,10 +55,10 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.45rem 1.1rem;
-  border: 1px solid rgba(197,160,71,0.45);
+  border: 1px solid rgba(13, 158, 108, 0.45);
   border-radius: 999px;
-  background: rgba(197,160,71,0.12);
-  color: #d4aa52;
+  background: rgba(13, 158, 108, 0.12);
+  color: #0D9E6C;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -77,10 +77,7 @@
 }
 .h-hero__title em {
   font-style: normal;
-  color: #d4aa52;
-}
-
-.h-hero__sub {
+  color: #0D9E6C;
   font-size: clamp(1rem, 1.8vw, 1.15rem);
   line-height: 1.75;
   color: rgba(232,238,248,0.85);
@@ -97,15 +94,15 @@
 
 .h-btn-primary {
   background: var(--color-accent);
-  color: #0f1f5c !important;
+  color: #fff !important;
   font-weight: 800;
-  box-shadow: 0 4px 24px rgba(197,160,71,0.35);
+  box-shadow: 0 4px 24px rgba(13, 158, 108, 0.35);
   border: 2px solid transparent;
 }
 .h-btn-primary:hover {
-  background: #d4b04a;
+  background: #0A7D55;
   transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(197,160,71,0.45);
+  box-shadow: 0 8px 32px rgba(13, 158, 108, 0.45);
 }
 
 .h-btn-secondary {
@@ -145,7 +142,7 @@
   align-items: center;
   gap: 0.4rem;
 }
-.h-hero__trust i { color: #d4aa52; font-size: 0.85rem; }
+.h-hero__trust i { color: #0D9E6C; font-size: 0.85rem; }
 
 /* Stats sidebar */
 .h-hero__stats {
@@ -155,7 +152,7 @@
 }
 .h-stat-card {
   padding: 1.25rem 1.5rem;
-  border: 1px solid rgba(197,160,71,0.3);
+  border: 1px solid rgba(13, 158, 108,0.3);
   border-radius: 20px;
   background: rgba(255,255,255,0.07);
   backdrop-filter: blur(12px);
@@ -171,7 +168,7 @@
   font-family: var(--font-heading);
   font-size: clamp(1.8rem, 3vw, 2.4rem);
   font-weight: 800;
-  color: #d4aa52;
+  color: #0D9E6C;
   line-height: 1;
   letter-spacing: -0.03em;
 }
@@ -271,7 +268,7 @@
   text-align: center;
   box-shadow: var(--shadow-sm);
 }
-.h-about__side-item.accent { border-color: rgba(197,160,71,0.35); background: rgba(197,160,71,0.06); }
+.h-about__side-item.accent { border-color: rgba(13, 158, 108,0.35); background: rgba(13, 158, 108,0.06); }
 .h-about__side-item strong {
   display: block;
   font-family: var(--font-heading);
@@ -337,10 +334,10 @@
   opacity: 0;
   transition: opacity var(--transition);
 }
-.h-mvv__card.featured::before { background: linear-gradient(90deg, var(--color-accent), #e8c55c); opacity: 1; }
+.h-mvv__card.featured::before { background: linear-gradient(90deg, var(--color-accent), #5DD4B0); opacity: 1; }
 .h-mvv__card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--color-primary-light); }
 .h-mvv__card:hover::before { opacity: 1; }
-.h-mvv__card.featured { border-color: rgba(197,160,71,0.4); background: linear-gradient(145deg, rgba(197,160,71,0.05), var(--color-surface)); }
+.h-mvv__card.featured { border-color: rgba(13, 158, 108,0.4); background: linear-gradient(145deg, rgba(13, 158, 108,0.05), var(--color-surface)); }
 
 .h-mvv__icon {
   display: inline-flex;
@@ -353,7 +350,7 @@
   font-size: 1.7rem;
 }
 .h-mvv__icon.blue { background: var(--color-primary-soft); color: var(--color-primary); }
-.h-mvv__icon.gold { background: rgba(197,160,71,0.12); color: var(--color-accent-dark); }
+.h-mvv__icon.gold { background: rgba(13, 158, 108,0.12); color: var(--color-accent-dark); }
 
 .h-mvv__card h3 {
   font-family: var(--font-heading);
@@ -463,8 +460,8 @@
 .h-focus__item:hover {
   transform: translateY(-5px);
   border-color: var(--color-accent);
-  box-shadow: 0 8px 28px rgba(197,160,71,0.2);
-  background: rgba(197,160,71,0.05);
+  box-shadow: 0 8px 28px rgba(13, 158, 108,0.2);
+  background: rgba(13, 158, 108,0.05);
   color: var(--color-accent-dark);
 }
 .h-focus__item i {
@@ -493,7 +490,7 @@
   overflow: hidden;
   background: linear-gradient(140deg, var(--color-primary-deeper) 0%, #1a3590 100%);
 }
-.h-kpi .section-kicker { color: rgba(197,160,71,0.9); }
+.h-kpi .section-kicker { color: rgba(13, 158, 108,0.9); }
 .h-kpi .section-heading { color: #fff; }
 .h-kpi .section-copy { color: rgba(232,238,248,0.8); }
 
@@ -523,10 +520,10 @@
   text-align: center;
   transition: transform var(--transition), background var(--transition), border-color var(--transition);
 }
-.h-kpi__card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.1); border-color: rgba(197,160,71,0.35); }
+.h-kpi__card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.1); border-color: rgba(13, 158, 108,0.35); }
 .h-kpi__card.featured {
-  border-color: rgba(197,160,71,0.4);
-  background: rgba(197,160,71,0.08);
+  border-color: rgba(13, 158, 108,0.4);
+  background: rgba(13, 158, 108,0.08);
 }
 
 .h-kpi__icon {
@@ -536,8 +533,8 @@
   width: 56px;
   height: 56px;
   border-radius: 18px;
-  background: rgba(197,160,71,0.15);
-  color: #d4aa52;
+  background: rgba(13, 158, 108,0.15);
+  color: #0D9E6C;
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
@@ -546,7 +543,7 @@
   font-family: var(--font-heading);
   font-size: clamp(2.2rem, 4vw, 3rem);
   font-weight: 800;
-  color: #d4aa52;
+  color: #0D9E6C;
   line-height: 1;
   letter-spacing: -0.04em;
   margin-bottom: 0.4rem;
@@ -602,7 +599,7 @@
   letter-spacing: 0.08em;
 }
 .h-news__badge.event { background: var(--color-primary); color: #fff; }
-.h-news__badge.program { background: var(--color-accent); color: #0f1f5c; }
+.h-news__badge.program { background: var(--color-accent); color: #fff; }
 .h-news__badge.book { background: #10B981; color: #fff; }
 
 .h-news__body {
@@ -841,7 +838,7 @@
   padding: 2.25rem 2.5rem;
   border-radius: 28px;
   border: 1px solid rgba(31,69,205,0.15);
-  background: linear-gradient(130deg, var(--color-primary-soft), rgba(197,160,71,0.06));
+  background: linear-gradient(130deg, var(--color-primary-soft), rgba(13, 158, 108,0.06));
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -889,7 +886,7 @@
   top: -120px; right: -120px;
   width: 500px; height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(197,160,71,0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(13, 158, 108,0.15) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -925,7 +922,7 @@
 }
 .h-cta__option:hover {
   background: rgba(255,255,255,0.13);
-  border-color: rgba(197,160,71,0.45);
+  border-color: rgba(13, 158, 108,0.45);
   transform: translateX(6px);
 }
 
@@ -936,13 +933,13 @@
   width: 44px; height: 44px;
   border-radius: 14px;
   background: rgba(255,255,255,0.1);
-  color: #d4aa52;
+  color: #0D9E6C;
   font-size: 1.2rem;
   flex-shrink: 0;
   transition: background var(--transition);
 }
-.h-cta__opt-icon.accent { background: rgba(197,160,71,0.2); }
-.h-cta__option:hover .h-cta__opt-icon { background: rgba(197,160,71,0.25); }
+.h-cta__opt-icon.accent { background: rgba(13, 158, 108,0.2); }
+.h-cta__option:hover .h-cta__opt-icon { background: rgba(13, 158, 108,0.25); }
 
 .h-cta__option div strong {
   display: block;
@@ -961,7 +958,7 @@
   transition: color var(--transition), transform var(--transition);
 }
 .h-cta__option:hover .h-cta__opt-arrow {
-  color: #d4aa52;
+  color: #0D9E6C;
   transform: translateX(4px);
 }
 
@@ -1142,13 +1139,13 @@
    DARK MODE OVERRIDES
    ══════════════════════════════════════════════ */
 [data-theme="dark"] .h-mvv__card { background: var(--color-surface); border-color: var(--color-border); }
-[data-theme="dark"] .h-mvv__card.featured { background: rgba(197,160,71,0.06); }
+[data-theme="dark"] .h-mvv__card.featured { background: rgba(13, 158, 108,0.06); }
 [data-theme="dark"] .h-prog-card { background: var(--color-surface); }
 [data-theme="dark"] .h-news__card { background: var(--color-surface); }
 [data-theme="dark"] .h-testi__card { background: var(--color-surface); }
 [data-theme="dark"] .h-partner__item { background: var(--color-surface-alt); }
 [data-theme="dark"] .h-about__side-item { background: var(--color-surface); }
-[data-theme="dark"] .h-partners__cta { background: linear-gradient(130deg, rgba(31,69,205,0.12), rgba(197,160,71,0.06)); }
+[data-theme="dark"] .h-partners__cta { background: linear-gradient(130deg, rgba(31,69,205,0.12), rgba(13, 158, 108,0.06)); }
 [data-theme="dark"] .h-focus__item { background: var(--color-surface); }
 [data-theme="dark"] .h-video__card { background: var(--color-surface); }
 [data-theme="dark"] .h-stat-card { background: rgba(255,255,255,0.05); }
