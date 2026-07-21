@@ -3,7 +3,7 @@
   const body = document.body;
 
   const getL10n = (key, fallback) => {
-    const lang = document.documentElement.getAttribute("lang") || "fr";
+    const lang = document.documentElement.getAttribute("lang") || "en";
     if (!window.gapTranslations || !window.gapTranslations[lang]) return fallback;
     const parts = key.split(".");
     let val = window.gapTranslations[lang];
@@ -222,7 +222,7 @@
         return;
       }
 
-      const activeLang = document.documentElement.getAttribute("lang") || "fr";
+      const activeLang = document.documentElement.getAttribute("lang") || "en";
       if (submitButton) {
         submitButton.disabled = true;
         submitButton.textContent = activeLang === "fr" ? "Envoi..." : "Sending...";
@@ -323,8 +323,8 @@
       const stored = window.localStorage.getItem(storageKey);
       if (stored === "fr" || stored === "en") return stored;
       
-      const browserLang = navigator.language || navigator.userLanguage || "fr";
-      return browserLang.startsWith("en") ? "en" : "fr";
+      const browserLang = navigator.language || navigator.userLanguage || "en";
+      return browserLang.startsWith("fr") ? "fr" : "en";
     };
 
     const getTranslationValue = (lang, key) => {
@@ -792,7 +792,7 @@ const initRegistrationForm = () => {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const activeLang = document.documentElement.getAttribute("lang") || "fr";
+    const activeLang = document.documentElement.getAttribute("lang") || "en";
 
     // Manual validation
     const name = form.querySelector("#reg-name")?.value.trim();
