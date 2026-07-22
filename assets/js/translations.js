@@ -57,7 +57,7 @@ window.gapTranslations = {
     "index.about.visual.caption": "Pipeline de leadership",
     "index.about.visual.desc": "Notre modèle de développement relie l'apprentissage personnel à l'action communautaire.",
     "index.about.visual.stat1.val": "26",
-    "index.about.visual.stat1.lbl": "Provinces cibles",
+    "index.about.visual.stat1.lbl": "Stations cibles",
     "index.about.visual.stat2.val": "5 000+",
     "index.about.visual.stat2.lbl": "Vies impactées",
 
