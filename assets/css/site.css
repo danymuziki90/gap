@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&display=swap');
 
 /* ============================================================
    GRAND AFRICAN PROJECTS — Design System
@@ -696,7 +696,7 @@ select:focus-visible,
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 1000;
   border-bottom: 1px solid var(--color-border);
   background: rgba(255,255,255,0.92);
   backdrop-filter: blur(18px);
@@ -855,9 +855,9 @@ select:focus-visible,
   font-size: 1.25rem;
   cursor: pointer;
   flex-shrink: 0;
-  transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+  transition: background 200ms ease, border-color 200ms ease, color 200ms ease, transform 250ms ease;
   position: relative;
-  z-index: 102;
+  z-index: 1010;
 }
 .nav-toggle:hover {
   background: var(--color-primary-soft);
@@ -865,15 +865,15 @@ select:focus-visible,
   color: var(--color-primary);
 }
 body.nav-open .nav-toggle {
-  background: rgba(255,255,255,0.12);
-  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.4);
   color: #fff;
-  z-index: 102;
+  z-index: 1010;
 }
 /* Rotation de l'icône lors de l'ouverture */
 .nav-toggle i {
-  display: block;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 body.nav-open .nav-toggle i {
   transform: rotate(90deg);
@@ -882,6 +882,11 @@ body.nav-open .nav-toggle i {
 /* ── Nav mobile — panneau latéral ──────────────────────────── */
 @media (max-width: 900px) {
   .nav-toggle { display: inline-flex; }
+
+  body.nav-open {
+    overflow: hidden !important;
+    touch-action: none;
+  }
 
   /* nav-shell : logo gauche, tools droite — pas de débordement */
   .nav-shell {
@@ -900,7 +905,7 @@ body.nav-open .nav-toggle i {
     right: 0;
     bottom: 0;
     left: auto;
-    width: min(300px, 82vw);
+    width: min(320px, 85vw);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -909,11 +914,13 @@ body.nav-open .nav-toggle i {
     padding: 0 0 2.5rem 0;
     background: linear-gradient(160deg, #0A1B5C 0%, #0D2A7A 100%);
     transform: translateX(105%);
-    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
-                visibility 300ms ease;
+    opacity: 0;
+    transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 280ms ease,
+                visibility 350ms ease;
     visibility: hidden;
     pointer-events: none;
-    z-index: 100;
+    z-index: 1000;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     box-shadow: -12px 0 48px rgba(0,0,0,0.45);
@@ -924,6 +931,7 @@ body.nav-open .nav-toggle i {
   /* Menu ouvert */
   body.nav-open .site-nav {
     transform: translateX(0);
+    opacity: 1;
     visibility: visible;
     pointer-events: all;
   }
@@ -933,11 +941,11 @@ body.nav-open .nav-toggle i {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(5, 12, 30, 0.6);
-    z-index: 99;
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    animation: overlay-fade 220ms ease forwards;
+    background: rgba(5, 12, 30, 0.65);
+    z-index: 990;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    animation: overlay-fade 250ms ease forwards;
   }
   @keyframes overlay-fade {
     from { opacity: 0; } to { opacity: 1; }
@@ -2322,8 +2330,8 @@ body.nav-open .nav-toggle i {
 
 /* Responsive nav — close button position */
 @media (max-width: 900px) {
-  .header-tools .nav-toggle { z-index: 100; position: relative; }
-  body.nav-open .nav-toggle { color: #fff; border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.10); }
+  .header-tools .nav-toggle { z-index: 1010; position: relative; }
+  body.nav-open .nav-toggle { color: #fff; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.15); }
 }
 
 /* Accessibilité — animations réduites */
