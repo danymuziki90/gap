@@ -24,7 +24,11 @@
   // Force light mode — theme switcher supprimé
   root.dataset.theme = "light";
 
-  const toggleNavigation = () => {
+  const toggleNavigation = (e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     const isOpen = body.classList.toggle("nav-open");
     if (navToggle) {
       navToggle.setAttribute("aria-expanded", String(isOpen));
@@ -673,12 +677,14 @@
   }
 
   if (nav) {
-    nav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", closeNavigation);
+    nav.addEventListener("click", (e) => {
+      if (e.target.closest("a")) {
+        closeNavigation();
+      }
     });
   }
 
-  // Fermer en cliquant sur l'overlay (::before) ou hors du panneau
+  // Fermer en cliquant sur l'overlay ou hors du panneau
   document.addEventListener("click", (e) => {
     if (!body.classList.contains("nav-open")) return;
     const isInsideNav = nav && nav.contains(e.target);
@@ -688,7 +694,14 @@
     }
   });
 
-  // Fermer au resize si écran desktop
+  // Fermer avec la touche Échap / Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && body.classList.contains("nav-open")) {
+      closeNavigation();
+    }
+  });
+
+  // Fermer au resize si écran desktop (> 900px)
   window.addEventListener("resize", () => {
     if (window.innerWidth > 900) {
       closeNavigation();
