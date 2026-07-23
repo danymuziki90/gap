@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DeploymentPath=/home/danielmuzike/grandafricanprojects.org
+    - /bin/cp -R * $DeploymentPath
